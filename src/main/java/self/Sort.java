@@ -10,8 +10,7 @@ import java.util.List;
  * O(nlogn):快速排序，归并排序，希尔排序，堆排序。
  */
 public class Sort {
-
-    //直接插入排序
+    // 直接插入排序
     public static int[] insertSort(int[] array){
         if(array == null || array.length == 0 || array.length == 1)
             return array;
@@ -28,7 +27,7 @@ public class Sort {
         return array;
     }
 
-    //折半插入排序
+    // 折半插入排序
     public static int[] binaryInsertSort(int[] array){
         if(array == null || array.length == 0 || array.length == 1)
             return array;
@@ -49,26 +48,23 @@ public class Sort {
         return array;
     }
 
-    //希尔排序
+    // 希尔排序（缩小增量排序，插入排序的改进，非稳定）
     public static int[] shellSort(int[] array){
-        if(array == null || array.length == 0 || array.length == 1)
+        if(array == null || array.length <= 1){
             return array;
-        int h = 1;
+        }
         int len = array.length;
-        while(h <= len/3)
-            h = h * 3 + 1;
-        while(h >= 1){
-            for(int i = h; i < len; i++){
-                for(int j = i; j >= h && array[j] < array[j - h]; j -= h){
-                    swap(array, j, j - h);
+        for(int d = len/2; d > 0; d /= 2){
+            for(int i = d; i < len; i++){
+                for(int j = i - d; j > 0 && array[j] > array[j + d]; j -= d){
+                    swap(array, j, j+d);
                 }
             }
-            h /= 3;
         }
         return array;
     }
 
-    //简单选择排序
+    // 简单选择排序
     public static int[] simpleSelectionSort(int[] array){
         if(array == null)
             return array;
@@ -83,7 +79,7 @@ public class Sort {
         return array;
     }
 
-    //堆排序
+    // 堆排序
     public static int[] heapSort(int[] array){
         if(array == null)
             return array;
@@ -125,7 +121,7 @@ public class Sort {
         return array;
     }
 
-    //快速排序
+    // 快速排序
     public static void quickSort(int[] array, int start, int end){
         if(array == null || (start == end))
             return ;
