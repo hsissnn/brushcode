@@ -22,6 +22,7 @@ public class Sort {
                     int temp = array[i];
                     System.arraycopy(array, j, array, j + 1, i - j);
                     array[j] = temp;
+                    break;
                 }
             }
         }
