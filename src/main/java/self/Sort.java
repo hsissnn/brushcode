@@ -13,10 +13,9 @@ public class Sort {
 
     //直接插入排序
     public static int[] insertSort(int[] array){
-        if(array == null)
+        if(array == null || array.length == 0 || array.length == 1)
             return array;
-        int s = array.length;
-        for(int i = 0; i < s; i++){
+        for(int i = 1; i < array.length; i++){
             for(int j = 0; j < i; j++){
                 if(array[j] > array[i]){
                     int temp = array[i];
@@ -31,10 +30,9 @@ public class Sort {
 
     //折半插入排序
     public static int[] binaryInsertSort(int[] array){
-        if(array == null || array.length == 0)
+        if(array == null || array.length == 0 || array.length == 1)
             return array;
-        int len = array.length;
-        for(int i = 1; i < len; i++){
+        for(int i = 1; i < array.length; i++){
             int temp = array[i];
             int start = 0,end = i - 1;
             while(start <= end){
@@ -53,7 +51,7 @@ public class Sort {
 
     //希尔排序
     public static int[] shellSort(int[] array){
-        if(array == null)
+        if(array == null || array.length == 0 || array.length == 1)
             return array;
         int h = 1;
         int len = array.length;
