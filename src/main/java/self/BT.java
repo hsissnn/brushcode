@@ -149,7 +149,6 @@ public class BT {
             return 0;
         }
         int count = 1;
-        Stack
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);
 
